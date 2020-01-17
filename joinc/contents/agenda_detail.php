@@ -28,6 +28,7 @@
                     <div class="col-lg-12 about-right-faq pr-0">
                         <h6 class="mt-2"><?php echo $tgl->indo($agenda['date']); ?>, <?php echo $agenda['view']; ?> Views</h6>
                         <h3 class="mt-2 mb-3"><?php echo $agenda['judul']; ?></h3>
+                        <h6><strong>Lokasi : </strong> <?= empty($agenda['lokasi']) ? '-' : $agenda['lokasi'] ; ?></h6>
                             <?php
                               echo $agenda['deskripsi'];
                             ?>
