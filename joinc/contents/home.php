@@ -33,77 +33,65 @@
         <!-- //animations effects -->
     </div>
 <!-- //banner -->
-<!-- what we do section -->
+
+<!-- start content artikel: (program,berita,agenda) -->
+	<?php
+		$artikel = [];
+		#get rows program
+		foreach ($database->select($fields="*", $table="program", $where_clause="ORDER BY id_program DESC LIMIT 1", $fetch="all") as $key => $value) {
+			$value['deskripsi'] = strip_tags(substr($value['deskripsi'], 0, 150)).'..';
+			$value['image']		= "./joimg/program/thumbnail/{$value['image']}";
+			$value['url'] 		= "detail-program-{$value['seo']}-{$value['id_program']}";
+			$artikel[] 			= $value;
+		}  
+		#get rows berita
+		foreach ($database->select($fields="*", $table="blog", $where_clause="ORDER BY id_blog DESC LIMIT 1", $fetch="all") as $key => $value) {
+			$value['deskripsi'] = strip_tags(substr($value['deskripsi'], 0, 150)).'..';
+			$value['image']		= "./joimg/blog/thumbnail/{$value['image']}";
+			$value['url'] 		= "detail-berita-{$value['seo']}-{$value['id_blog']}";
+			$artikel[] = $value;
+		}  
+		#get rows agenda
+		foreach ($database->select($fields="*", $table="agenda", $where_clause="ORDER BY id_agenda DESC LIMIT 1", $fetch="all") as $key => $value) {
+			$value['deskripsi'] = strip_tags(substr($value['deskripsi'], 0, 150)).'..';
+			$value['image']		= "./joimg/agenda/thumbnail/{$value['image']}";
+			$value['url'] 		= "detail-agenda-{$value['seo']}-{$value['id_agenda']}";
+			$artikel[] = $value;
+		}
+		$artikel = array_slice($artikel,0,3);
+		
+		#generate htmls artikel
+		$artikelHtmls = [];
+		foreach ($artikel as $key => $value) {
+			$artikelHtmls[] = "
+			<div class='col-lg-4'>
+				<div class='about-grid-main' style='padding:1em!important;'>
+					<img src='{$value['image']}' alt='{$value['judul']}' class='img-fluid'>
+					<h4 class='my-4'>{$value['judul']}</h4>
+					<p>{$value['deskripsi']}</p>
+					<a href='{$value['url']}' class='button-w3ls btn mt-sm-5 mt-4'><i class='fa fa-book'></i> Read more</a>
+				</div>
+			</div>
+			<div class='clearfix'></div>
+			";
+		}
+		$artikelHtmls = implode('',$artikelHtmls);
+
+		// echo '<pre>';
+		// print_r($artikel);
+		// echo '</pre>';
+	?>
 	<div class="what bg-li py-5" id="whyChooseUs">
 		<div class="container py-xl-5 py-lg-3">
-			<h3 class="title text-center font-weight-bold">Fasilitas</h3>
-			<p class="sub-tittle text-center mt-3 mb-sm-5 mb-4">Fasilitas Kemah Pancasila</p>				
+			<h3 class="title text-center font-weight-bold">Info Terbaru</h3>
+			<p class="sub-tittle text-center mt-3 mb-sm-5 mb-4">Program , Berita & Agenda</p>				
 			<div class="row about-bottom-w3l text-center mt-4">
-				<?php 
-                    $amenities = $database->select($fields="*", $table="amenities", $where_clause="ORDER BY id_amenities DESC", $fetch="all");
-                    foreach ($amenities as $key => $am) {
-                        echo '
-                        <div class="col-lg-3">
-							<div class="about-grid-main" style="padding:1em!important;">
-								<img src="joimg/amenities/'.$am['image'].'" alt="'.$am['nama'].'" class="img-fluid">
-								<h4 class="my-4">'.$am['nama'].'</h4>
-								<p>'.strip_tags($am['description']).'</p>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-                        ';
-                    }
-                ?>				
+				<?= $artikelHtmls ?>			
 			</div>
 		</div>
 	</div>
-<!-- //what we do section -->
-	<!-- services -->
-	<!-- <section class="banner-bottom-w3layouts bg-li py-5" id="services">
-		<div class="container py-xl-5 py-lg-3">
-			<h3 class="tittle text-center font-weight-bold">Our Services</h3>
-			<p class="sub-tittle text-center mt-3 mb-sm-5 mb-4">Saat ini kami melayanai pemesanan untuk pengiriman air bersih, sehat dan bekualitas ke beberapa wilayah di Indonesia.</p>
-			<div class="row pt-lg-4">
-				<div class="col-lg-4 about-in text-center">
-					<div class="card">
-						<div class="card-body">
-							<div class="bg-clr-w3l">
-								<span class="fa fa-user"></span>
-							</div>
-							<h5 class="card-title mt-4 mb-3">Yogyakarta</h5>
-							<p class="card-text">Hubungi nomor dibawah ini untuk pemesanan di wilayah Yogyakarta & sekitarnya.</p>
-							<a href="tel:085100883614" class="button-w3ls btn mt-sm-5 mt-4"><i class="fa fa-phone"></i> 085-100-883-614</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 about-in text-center">
-					<div class="card active">
-						<div class="card-body">
-							<div class="bg-clr-w3l">
-								<span class="fa fa-user"></span>
-							</div>
-							<h5 class="card-title mt-4 mb-3">Solo</h5>
-							<p class="card-text">Hubungi nomor dibawah ini untuk pemesanan di wilayah Solo & sekitarnya.</p>
-							<a href="tel:085100551751" class="button-w3ls btn mt-sm-5 mt-4"><i class="fa fa-phone"></i> 085-100-551-751</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 about-in text-center">
-					<div class="card">
-						<div class="card-body">
-							<div class="bg-clr-w3l">
-								<span class="fa fa-user"></span>
-							</div>
-							<h5 class="card-title mt-4 mb-3">Tegal & Purwokerto</h5>
-							<p class="card-text">Hubungi nomor dibawah ini untuk pemesanan di wilayah sekitar Tegal & Purwokerto.</p>
-							<a href="tel:085100329329" class="button-w3ls btn mt-sm-5 mt-4"><i class="fa fa-phone"></i> 085-100-329-329</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!-- //services -->
+<!-- end content artikel: (program,berita,agenda) -->
+
 	<!-- partners -->
 	<section class="partners py-5" id="penyelenggara">
 		<div class="container py-xl-5 py-lg-3">

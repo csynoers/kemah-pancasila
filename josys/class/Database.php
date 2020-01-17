@@ -60,7 +60,7 @@ class Database {
 			} catch(PDOException $e) {
 				die($e->getMessage());
 			}
-			return $query->fetchAll();
+			return $query->fetchAll(PDO::FETCH_ASSOC);
 		}else { //if get data by one
 			//$query->bindValue(1, $id);
 			try{
