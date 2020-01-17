@@ -52,6 +52,7 @@ if($act=='insert')
                 "deskripsi"         => "$deskripsi",
                 "image"             => "$nama_file_unik",
                 "date"              => "$date",
+                "lokasi"            => $_POST['lokasi'],
                 "seo"               => "$nama_seo",
                 "status"            => "$_POST[status]"
             );
@@ -67,6 +68,7 @@ if($act=='insert')
                 // "id_agenda_kategori"  => "$_POST[kategori]",
                 "deskripsi"         => "$deskripsi",
                 "date"              => "$date",
+                "lokasi"            => $_POST['lokasi'],
                 "seo"               => "$nama_seo",
                 "status"            => "$_POST[status]"
             );
@@ -124,6 +126,7 @@ if($act=='update')
                 "deskripsi"         => "$deskripsi",
                 "image"             => "$nama_file_unik",
                 "date"              => "$date",
+                "lokasi"            => $_POST['lokasi'],
                 "seo"               => "$nama_seo",
                 "status"            => "$_POST[status]"
             );
@@ -140,6 +143,7 @@ if($act=='update')
                 // "id_agenda_kategori"  => "$_POST[kategori]",
                 "deskripsi"         => "$deskripsi",
                 "date"              => "$date",
+                "lokasi"            => $_POST['lokasi'],
                 "seo"               => "$nama_seo",
                 "status"            => "$_POST[status]"
             );

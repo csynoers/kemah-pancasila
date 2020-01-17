@@ -167,6 +167,12 @@ else {
                                     <input type="date" name="date" class="form-control date-picker" required="">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="fg-line">
+                                    <label>Lokasi Agenda</label>
+                                    <input placeholder="masukan lokasi agenda disini" type="text" name="lokasi" class="form-control" required="">
+                                </div>
+                            </div>
                             
                             <div class="form-group">
                                 <div class="fg-line">
@@ -270,6 +276,12 @@ else {
                                     <div class="fg-line">
                                         <label>Tanggal</label>
                                         <input type="date" name="date" class="form-control date-picker" value="<?php echo $value['date']; ?>" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Lokasi Agenda</label>
+                                        <input placeholder="masukan lokasi agenda disini" type="text" name="lokasi" class="form-control" value="<?php echo $value['lokasi']; ?>" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
