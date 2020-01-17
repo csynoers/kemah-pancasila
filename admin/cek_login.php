@@ -39,64 +39,68 @@ echo "
     </div>";
 }
 else{
-$pass   = $security->enkrip($password);
-$result = $database->count_rows($table="users", $where_clause="WHERE username='$username' AND password='$pass' AND blokir='N' AND level = 'admin'");
+    $username   = $security->anti_injection($_POST['username']);
+    $password   = $security->anti_injection($_POST['password']);
+    $result     = $database->count_rows($table="users", $where_clause="WHERE username='$username'  AND blokir='N' AND level = 'admin'");
+    if ($result > 0 ){
+        $users = $database->select($fields="*", $table="users", $where_clause="WHERE username='$username' AND blokir='N'", $fetch="");
+        if ( $security->dekrip( $users['password'] ) == $password ) {
+            session_start();
+            $_SESSION['id_users']       = $users['id_users'];
+            $_SESSION['username']       = $users['username'];
+            $_SESSION['nama_lengkap']   = $users['nama_lengkap'];
+            $_SESSION['password']       = $users['password'];
+            $_SESSION['level']          = $users['level'];
 
-$users = $database->select($fields="*", $table="users", $where_clause="WHERE username='$username' AND password='$pass' AND blokir='N' AND level='admin'", $fetch="");
+            $sid_lama = session_id();
 
-// Apabila username dan password ditemukan
-if ($result > 0){
-    session_start();
-    $_SESSION['id_users']       = $users['id_users'];
-    $_SESSION['username']       = $users['username'];
-    $_SESSION['nama_lengkap']   = $users['nama_lengkap'];
-    $_SESSION['password']       = $users['password'];
-    $_SESSION['level']          = $users['level'];
+            session_regenerate_id();
 
-	$sid_lama = session_id();
+            $sid_baru = session_id();
 
-	session_regenerate_id();
+            $form_data = array(
+                'id_session' => $sid_baru,
+            );
 
-	$sid_baru = session_id();
+            $database->update($table="users", $array=$form_data, $fields_key="id_users", $id="$_SESSION[id_users]");
+            header('location:media.php?module=home');
+        } else {
+            $message= 'username or password does not exist.';
+        }
+        
+    }
+    else{
 
-    $form_data = array(
-        'id_session' => $sid_baru,
-    );
+    echo "
+        <br /> <br />
+        <br /> <br />
+        <br /> <br />
+        <br /> <br />
+        <div align='center'>
+            <div id='content'>
+                <div align='center'>
+                <br />
 
-    $database->update($table="users", $array=$form_data, $fields_key="id_users", $id="$_SESSION[id_users]");
-    header('location:media.php?module=home');
+                <table width='303' border='0' cellpadding='0' cellspacing='0' class='form3'>
+                    <tr>
+                        <td>
+                            <div align='center'>
+                                <a href='index.php'>
+                                    <b>
+                                        <img src='assets/img/icons/icn_alert_warning.png' width='24' height='24' border='0'/>
+                                    </b>
+                                </a>
+                                <br />
+
+                                <a href='index.php'><b>Ulangi Sekali Lagi</b></a>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+                <br /> <br />
+            </div>
+        </div>";
+    }
 }
-else{
-
-echo "
-    <br /> <br />
-    <br /> <br />
-    <br /> <br />
-    <br /> <br />
-    <div align='center'>
-        <div id='content'>
-            <div align='center'>
-            <br />
-
-            <table width='303' border='0' cellpadding='0' cellspacing='0' class='form3'>
-                <tr>
-                    <td>
-                        <div align='center'>
-                            <a href='index.php'>
-                                <b>
-                                    <img src='assets/img/icons/icn_alert_warning.png' width='24' height='24' border='0'/>
-                                </b>
-                            </a>
-                            <br />
-
-                            <a href='index.php'><b>Ulangi Sekali Lagi</b></a>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
-            <br /> <br />
-        </div>
-    </div>";
-}}
 ?>
