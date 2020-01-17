@@ -1,0 +1,47 @@
+.top-menu > li .dropdown-menu-lg .lv-body {
+    min-height: 100px;
+}
+
+#footer{
+	height: 70px;
+}
+
+body {
+    font-size: 14px;
+}
+
+.putih{
+	color: #FFFFFF;
+}
+
+.alert {
+    font-size: 14px;
+}
+
+.kaki{
+    text-align: right;
+    margin: 30px 0 0;
+    width: 100%;
+    border-top: 2px solid #eee;
+    padding: 15px 0;
+}
+
+#sidebar.toggled {
+    opacity: 1;
+}
+
+.line{
+	border-top: 2px solid #673AB7;
+}
+
+.color-red {
+    color: #F44336;
+}
+
+.garis{
+	border-top: 1px solid #673AB7;
+}
+
+.fileinput .fileinput-preview {
+    width: 175px;
+}

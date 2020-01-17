@@ -1,0 +1,47 @@
+RewriteEngine On
+
+<Ifmodule mod_rewrite.c>
+	Options All -Indexes
+</Ifmodule>
+
+#---- Begin Site Map ---#
+RewriteRule (.*)\.xml(.*) $1.php$2 [nocase]
+#---- End Site Map ----#
+
+#Home or index
+RewriteRule ^home$ media.php?mod=home [L]
+
+#main menu
+RewriteRule ^staff$ media.php?mod=staff [L]
+RewriteRule ^contact$ media.php?mod=contact [L]
+
+RewriteRule ^testimoni$ media.php?mod=testimoni [L]
+RewriteRule ^testimoni-halaman-(.*)$ media.php?mod=testimoni&halaman=$1 [L]
+
+#profil
+RewriteRule ^kemah-pancasila$ media.php?mod=about [L]
+RewriteRule ^trainer$ media.php?mod=trainer [L]
+RewriteRule ^detail-trainer-(.*)-(.*)$ media.php?mod=trainer_detail&seo=$1&id=$2 [L]
+RewriteRule ^fasilitator$ media.php?mod=fasilitator [L]
+
+#news
+RewriteRule ^berita$ media.php?mod=berita [L]
+RewriteRule ^berita-halaman-(.*)$ media.php?mod=berita&halaman=$1 [L]
+RewriteRule ^detail-berita-(.*)-(.*)$ media.php?mod=berita_detail&seo=$1&id=$2 [L]
+RewriteRule ^berita-category-(.*)-(.*)$ media.php?mod=berita_category&seo=$1&id=$2 [L]
+
+#program
+RewriteRule ^program$ media.php?mod=program [L]
+RewriteRule ^program-halaman-(.*)$ media.php?mod=program&halaman=$1 [L]
+RewriteRule ^detail-program-(.*)-(.*)$ media.php?mod=program_detail&seo=$1&id=$2 [L]
+
+#agenda
+RewriteRule ^agenda$ media.php?mod=agenda [L]
+RewriteRule ^agenda-halaman-(.*)$ media.php?mod=agenda&halaman=$1 [L]
+RewriteRule ^detail-agenda-(.*)-(.*)$ media.php?mod=agenda_detail&seo=$1&id=$2 [L]
+
+RewriteRule ^galeri$ media.php?mod=gallery [L]
+
+RewriteRule ^send-messages$ media.php?mod=messages-act [L]
+
+ErrorDocument 404 /404.html

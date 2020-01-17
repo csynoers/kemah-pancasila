@@ -1,0 +1,4 @@
+cara penggunaaan watermark :
+1. buat image watermark (taruh dalam folder)
+2. Taruh watermark.php di dolder josys
+3. Buat dungsi watermark di aksi_produk
