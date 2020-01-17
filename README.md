@@ -1,0 +1,2 @@
+# kemah-pancasila
+Air sebagai sumber kehidupan 73% zat pembentuk tubuh manusia adalah Air. Populasi manusia terus bertambah, kebutuhan akan air bersih meningkat. Sementara ketersediaan iar bersih menurun.  Lingkungan hidup kita semakin maju, semakin padat semakin tercemar. Ketersediaan air tanah sangat menipis baik kuantitas maupun kualitas.  Maka, kami hadir untuk memberikan SOLUSI TEPAT BAGI KEBUTUHAN AIR BERKUALITAS.
