@@ -77,12 +77,6 @@
                 </div>
                 <!-- //copyright -->
                 <!-- move top icon -->
-                <div id="live-chat">
-                    <a class="btn btn-large" target="_blank" id="wa-live">
-                        <span class="fa fa-whatsapp"></span> <span class="text">Live Chat!</span>
-                    </a>
-                    <!-- //move top icon -->
-                </div>
                 <a href="#home" class="move-top text-center" id="to-top">
                     <span class="text">Back to</span> <span class="fa fa-level-up" aria-hidden="true"></span>
                 </a>
