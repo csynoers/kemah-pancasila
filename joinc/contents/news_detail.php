@@ -9,7 +9,7 @@
     $blog_kategori = $database->select($fields="*", $table="blog_kategori", $where_clause="WHERE id_blog_kategori='$blog[id_blog_kategori]'", $fetch="");
  ?>
 <!-- banner -->
-    <div class="banner_w3lspvt-2">
+    <div class="banner_w3lspvt-2XXX">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="home" class="font-weight-bold">Home</a></li>
             <li class="breadcrumb-item"><a href="berita" class="font-weight-bold">Berita</a></li>
