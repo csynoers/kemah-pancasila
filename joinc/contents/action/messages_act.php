@@ -45,9 +45,10 @@
 			$message = stripslashes($message);
 		}
 
-		if(!empty($_POST['captcha_code']))
+		// if(!empty($_POST['captcha_code']))
+		if(empty($_POST['captcha_code']))
 		{
-			if(empty($_SESSION['captcha_code'] ) || strcasecmp($_SESSION['captcha_code'], $_POST['captcha_code']) != 0)
+			if(!empty($_SESSION['captcha_code'] ) || strcasecmp($_SESSION['captcha_code'], $_POST['captcha_code']) != 0)
 			{
 				// Captcha verification is incorrect.
 				echo "<script>alert('Maaf! Captcha tidak sesuai. Harap Ulangi lagi. Terimakasih.'); window.location = 'contact';</script>";

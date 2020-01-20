@@ -39,7 +39,7 @@
 
 
                                 <!-- <li><a href="about" <?php echo $aktif = ($_GET['mod'] == 'about') ? 'class="active"' : '' ; ?>>About Us</a></li> -->
-                                <!-- <li><a href="contact" <?php echo $aktif = ($_GET['mod'] == 'contact') ? 'class="active"' : '' ; ?>>Contact Us</a></li> -->
+                                <li><a href="contact" <?php echo $aktif = ($_GET['mod'] == 'contact') ? 'class="active"' : '' ; ?>>Kontak</a></li>
                             </ul>
                         </nav>
                     </div>
