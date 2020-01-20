@@ -29,9 +29,18 @@
     // echo '</pre>';
 
     $data = [];
+
     foreach ($database->select('*','hastags',"WHERE 1 AND category='ig' ",'all') as $key => $value) {
-        $data['rows'][] = array_slice(exploreIG($value['tag']),0,20);
+        foreach (exploreIG($value['tag']) as $keyTag => $valueTag) {
+            $data['rows'][] = $valueTag;
+        }
     }
+
+    # paging
+    require 'josys/class/Pagination_htaccess.php';
+    $pagination = new Paging_get_all();
+    $batas      = 30;
+    $posisi     = $pagination->cariPosisi($batas);
 
 ?>
     <style>
@@ -84,25 +93,38 @@
             <div class="grid-col grid-col--3"></div>
             <div class="grid-col grid-col--4"></div>
             <?php
-            foreach ($data['rows'] as $keyTags => $valueTags) {
-                foreach ($valueTags as $key => $value) {
-                    $value->urlMod = "https://www.instagram.com/p/{$value->node->shortcode}"; 
-                    echo "
-                        <div class='grid-item grid-item--{$key} mb-4'>
-                            <div class='card'>
-                                <img class='card-img-top' src='{$value->node->thumbnail_resources[2]->src}' alt='Card image cap'>
-                                <div class='card-body'>
-                                    <!--<h5 class='card-title'>Card title</h5>-->
-                                    <p class='card-text'><a href='{$value->urlMod}' class='card-link'>{$value->node->edge_media_to_caption->edges[0]->node->text}</a></p>
-                                    <!--<a href='#' class='btn btn-primary'>Go somewhere</a>-->
-                                </div>
-                            </div>                        
-                        </div>
-                    ";
-                }
+            foreach (array_splice($data['rows'],$posisi,$batas) as $key => $value) {
+                $value->urlMod = "https://www.instagram.com/p/{$value->node->shortcode}"; 
+                echo "
+                    <div class='grid-item grid-item--{$key} mb-4'>
+                        <div class='card'>
+                            <img class='card-img-top' src='{$value->node->thumbnail_resources[2]->src}' alt='Card image cap'>
+                            <div class='card-body'>
+                                <!--<h5 class='card-title'>Card title</h5>-->
+                                <p class='card-text'><a href='{$value->urlMod}' class='card-link'>{$value->node->edge_media_to_caption->edges[0]->node->text}</a></p>
+                                <!--<a href='#' class='btn btn-primary'>Go somewhere</a>-->
+                            </div>
+                        </div>                        
+                    </div>
+                ";
             }
             ?>
         </div>
+        <?php 
+            $jmldata    = count($data['rows']);
+            if ($jmldata > $batas) {
+                echo "
+                <div class='cleafix'></div>
+                <div class='text-center'>
+                    <ul class='pagination page-item'>";
+                        $jmlhalaman  = $pagination->jumlahHalaman($jmldata, $batas);
+                        $linkHalaman = $pagination->navHalaman($_GET['halaman'], $jmlhalaman);
+                        echo str_replace('<li', '<li class="page-link"', $linkHalaman);
+                    echo "</ul>
+                </div>
+                ";
+            }
+        ?>
     </div>
     <script src="https://unpkg.com/colcade@0/colcade.js"></script>
     <script>
