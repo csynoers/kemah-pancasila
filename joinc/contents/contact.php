@@ -93,7 +93,7 @@
                                                 <!-- Can't read the image? click <a href='javascript: refreshCaptcha();'>here</a> to refresh.<br/>  -->
                                             <!-- </div> -->
                                             <!-- <div class="col-md-6 mt-md-0 mt-4"> -->
-                                                <!-- <input id="captcha_code" name="captcha_code" class="form-control" type="text"  required="require" maxlength="6" placeholder="Captcha Code*" value=""> -->
+                                                <input id="captcha_code" name="captcha_code" class="form-control" type="hidden"  required="require" maxlength="6" placeholder="Captcha Code*" value="">
                                             <!-- </div> -->
                                         <!-- </div> -->
                                     <!-- </div> -->
