@@ -4,7 +4,7 @@
     //$staff_gallery_kategori = $database->select($fields="*", $table="staff_gallery_kategori", $where_clause="WHERE id_kategori='$staff_gallery[id_kategori]'", $fetch="");
  ?>
 <!-- banner -->
-    <div class="banner_w3lspvt-2">
+    <div class="banner_w3lspvt-2XXX">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="home" class="font-weight-bold">Home</a></li>
             <li class="breadcrumb-item"><a href="trainer" class="font-weight-bold">Trainer</a></li>
