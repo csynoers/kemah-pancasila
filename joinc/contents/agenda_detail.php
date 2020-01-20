@@ -9,7 +9,7 @@
     //$agenda_kategori = $database->select($fields="*", $table="agenda_kategori", $where_clause="WHERE id_agenda_kategori='$agenda[id_agenda_kategori]'", $fetch="");
  ?>
 <!-- banner -->
-    <div class="banner_w3lspvt-2">
+    <div class="banner_w3lspvt-2XXX">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="home" class="font-weight-bold">Home</a></li>
             <li class="breadcrumb-item"><a href="agenda" class="font-weight-bold">Agenda</a></li>
