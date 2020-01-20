@@ -44,4 +44,6 @@ RewriteRule ^galeri$ media.php?mod=gallery [L]
 
 RewriteRule ^send-messages$ media.php?mod=messages-act [L]
 
+RewriteRule ^sosmed$ media.php?mod=sosmed [L]
+
 ErrorDocument 404 /404.html

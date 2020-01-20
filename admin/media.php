@@ -258,6 +258,7 @@ else
                             <ul>
                                 <li><a href="?module=map">Maps</a></li>
                                 <li><a href="?module=sosmed">Social Media</a></li>
+                                <li><a href="?module=sosmedtags">Tags Social Media</a></li>
                                 <!-- <li><a href="?module=slideshow&kat=1">Slideshow</a></li> -->
                             </ul>
                         </li>

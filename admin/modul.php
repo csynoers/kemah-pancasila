@@ -225,6 +225,13 @@ elseif ($_GET['module']=='sosmed'){
   }
 }
 
+// Bagian TAGS Sosmed
+elseif ($_GET['module']=='sosmedtags'){
+  if ($_SESSION['level']=='admin'){
+    include "modul/mod_tags_social_media/index.php";
+  }
+}
+
 // Bagian SlideShow
 elseif ($_GET['module']=='slideshow'){
   if ($_SESSION['level']=='admin'){
