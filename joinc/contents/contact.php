@@ -27,10 +27,10 @@
                 <div class="col-lg-6">
                     <h3 class="title-w3 text-bl mb-3 font-weight-bold">Kemah Pancasila</h3>
                     <?php 
-                        $kontak = $database->select($fields="*", $table="kontak", $where_clause="ORDER BY id_kontak ASC", $fetch="all");
+                        $kontak = $database->select($fields="*", $table="kontak", $where_clause="WHERE id_kontak IN(1,2,3) ORDER BY id_kontak ASC", $fetch="all");
                         foreach ($kontak as $key => $vk) {
                             echo '
-                                <p><address><b>'.$vk['nama'].'</b></address></p>
+                                <p><address><b>'.$vk['nama'].' :</b></address></p>
                                 <p><address>'.$vk['judul'].'</address></p>
                             ';
                         }

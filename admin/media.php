@@ -200,7 +200,7 @@ else
                             </ul>
                         </li>
                         <!-- <li><a href="?module=school"><i class="zmdi zmdi-balance"></i> School</a></li> -->
-                        <li><a href="?module=amenities"><i class="zmdi zmdi-widgets"></i> Fasilitas</a></li>
+                        <!-- <li><a href="?module=amenities"><i class="zmdi zmdi-widgets"></i> Fasilitas</a></li> -->
                         <!-- <li><a href="?module=staff"><i class="zmdi zmdi-accounts-list-alt"></i> Staff</a></li> -->
                         <!-- <li><a href="?module=download"><i class="zmdi zmdi-download"></i> Download</a></li> -->
                         <!-- <li class="sub-menu <?php echo $t =($_GET['module'] === 'produk_kategori')  ||  ($_GET['module'] === 'produk' ) || ($_GET['module'] === 'brand') ? 'active toggled' : '' ; ?>">
@@ -211,18 +211,18 @@ else
                                 <li><a href="?module=produk">Produk</a></li>
                             </ul>
                         </li> -->
-                        <li class="sub-menu <?php echo $t =($_GET['module'] === 'blog' ) || ($_GET['module'] === 'blog_kategori')  ? 'active toggled' : '' ; ?>">
-                            <a href="#"><i class="zmdi zmdi-assignment zmdi-hc-fw"></i> Berita</a>
-                            <ul>
-                                <li><a href="?module=blog_kategori">Berita Kategori</a></li>
-                                <li><a href="?module=blog">Berita</a></li>
-                            </ul>
-                        </li>
                         <li class="sub-menu <?php echo $t =($_GET['module'] === 'program' ) || ($_GET['module'] === 'program_kategori')  ? 'active toggled' : '' ; ?>">
                             <a href="#"><i class="zmdi zmdi-assignment zmdi-hc-fw"></i> Program</a>
                             <ul>
                                 <li><a href="?module=program_kategori">Program Kategori</a></li>
                                 <li><a href="?module=program">Program</a></li>
+                            </ul>
+                        </li>
+                        <li class="sub-menu <?php echo $t =($_GET['module'] === 'blog' ) || ($_GET['module'] === 'blog_kategori')  ? 'active toggled' : '' ; ?>">
+                            <a href="#"><i class="zmdi zmdi-assignment zmdi-hc-fw"></i> Berita</a>
+                            <ul>
+                                <li><a href="?module=blog_kategori">Berita Kategori</a></li>
+                                <li><a href="?module=blog">Berita</a></li>
                             </ul>
                         </li>
                         
@@ -234,13 +234,14 @@ else
                             </ul>
                         </li> -->
 
-                        <!-- <li class="sub-menu <?php echo $t =($_GET['module'] === 'gallery')  ||  ($_GET['module'] === 'gallery_kategori')? 'active toggled' : '' ; ?>">
+                        <li class="sub-menu <?php echo $t =($_GET['module'] === 'gallery')  ||  ($_GET['module'] === 'gallery_kategori')? 'active toggled' : '' ; ?>">
                             <a href="#"><i class="zmdi zmdi-collection-image zmdi-hc-fw"></i> Gallery</a>
                             <ul>
-                                <li><a href="?module=gallery_kategori">Gallery Category</a></li>
-                                <li><a href="?module=gallery">Gallery</a></li>
+                                <!-- <li><a href="?module=gallery_kategori">Gallery Category</a></li>
+                                <li><a href="?module=gallery">Gallery</a></li> -->
+                                <li><a href="?module=gallery_kategori">Gallery</a></li>
                             </ul>
-                        </li> -->
+                        </li>
 
 						<!-- <li class="sub-menu <?php echo $t =($_GET['module'] === 'messages') ? 'active toggled' : '' ; ?>">
                             <a href="#"><i class="zmdi zmdi-inbox zmdi-hc-fw"></i> Inbox</a>
@@ -250,6 +251,7 @@ else
                             </ul>
                         </li> -->
                         <li><a href="?module=agenda"><i class="zmdi zmdi-widgets"></i> Agenda</a></li>
+                        <li><a href="?module=testimonies"><i class="zmdi zmdi-widgets"></i> Testimoni</a></li>
 
                         <li><a href="?module=messages"><i class="zmdi zmdi-comment-list"></i> Messages</a></li>
                        
