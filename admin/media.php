@@ -1,7 +1,7 @@
 <?php
 ob_start(); // Added to avoid a common error of 'header already sent'
 session_start();
-error_reporting(0);
+// error_reporting(0);
 //Import System
 require_once "config.php";
 include "../josys/function/time_load.php";
@@ -234,12 +234,13 @@ else
                             </ul>
                         </li> -->
 
-                        <li class="sub-menu <?php echo $t =($_GET['module'] === 'gallery')  ||  ($_GET['module'] === 'gallery_kategori')? 'active toggled' : '' ; ?>">
-                            <a href="#"><i class="zmdi zmdi-collection-image zmdi-hc-fw"></i> Gallery</a>
+                        <li class="sub-menu <?php echo $t =($_GET['module'] === 'gallery')  ||  ($_GET['module'] === 'gallery_kategori') ||  ($_GET['module'] === 'gallery_video')? 'active toggled' : '' ; ?>">
+                            <a href="#"><i class="zmdi zmdi-collection-image zmdi-hc-fw"></i> Galeri</a>
                             <ul>
                                 <!-- <li><a href="?module=gallery_kategori">Gallery Category</a></li>
                                 <li><a href="?module=gallery">Gallery</a></li> -->
-                                <li><a href="?module=gallery_kategori">Gallery</a></li>
+                                <li><a href="?module=gallery_kategori">Foto</a></li>
+                                <li><a href="?module=gallery_video">Video</a></li>
                             </ul>
                         </li>
 

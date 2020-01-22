@@ -30,8 +30,19 @@
                                     </ul>
                                 </li>
                                 <li><a href="program" <?php echo $aktif = ($_GET['mod'] == 'program') ? 'class="active"' : '' ; ?>>Program</a></li>                                
-                                <li><a href="berita" <?php echo $aktif = ($_GET['mod'] == 'news') ? 'class="active"' : '' ; ?>>Berita</a></li>                                
-                                <li><a href="galeri" <?php echo $aktif = ($_GET['mod'] == 'gallery') ? 'class="active"' : '' ; ?>>Galeri</a></li>
+                                <li><a href="berita" <?php echo $aktif = ($_GET['mod'] == 'news') ? 'class="active"' : '' ; ?>>Berita</a></li>
+                                <li>
+                                    <!-- First Tier Drop Down -->
+                                    <label for="drop-2" class="toggle toogle-2">Profil <span class="fa fa-angle-down" aria-hidden="true"></span>
+                                    </label>
+                                    <a href="#" <?= ($_GET['mod'] == 'gallery') ? 'class="active"' : '' ; ?>>Galeri <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                    <input type="checkbox" id="drop-2" />
+                                    <ul>
+                                        <li><a href="galeri-foto" >Foto</a></li>
+                                        <li><a href="galeri-video" >Video</a></li>
+                                    </ul>
+                                </li>                                
+                                <!-- <li><a href="galeri" <?php echo $aktif = ($_GET['mod'] == 'gallery') ? 'class="active"' : '' ; ?>>Galeri</a></li> -->
                                 <li><a href="agenda" <?php echo $aktif = ($_GET['mod'] == 'agenda') ? 'class="active"' : '' ; ?>>Agenda</a></li>                                
                                 <li><a href="home#penyelenggara" <?php echo $aktif = ($_GET['mod'] == 'penyelenggara') ? 'class="active"' : '' ; ?>>Penyelenggara</a></li>                                
                                 <li><a href="testimoni">Testimoni</a></li>

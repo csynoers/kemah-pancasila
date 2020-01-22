@@ -178,6 +178,13 @@ elseif ($_GET['module']=='gallery') {
   }
 }
 
+// Controller modul galeri video
+elseif ($_GET['module']=='gallery_video') {
+  if ($_SESSION['level']=='admin') {
+    include "modul/mod_gallery_video/index.php";
+  }
+}
+
 // Bagian amenities
 elseif ($_GET['module']=='amenities') {
   if ($_SESSION['level']=='admin') {
