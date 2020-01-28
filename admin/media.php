@@ -1,7 +1,7 @@
 <?php
 ob_start(); // Added to avoid a common error of 'header already sent'
 session_start();
-// error_reporting(0);
+error_reporting(0);
 //Import System
 require_once "config.php";
 include "../josys/function/time_load.php";

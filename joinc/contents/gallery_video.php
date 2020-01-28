@@ -13,7 +13,7 @@
                 $htmls = [];
                 foreach ($data['rows'] as $key => $value) {
                     $htmls[] = '
-                        <div class="col-lg-4"><iframe class="w-100" height="300px" src="https://www.youtube.com/embed/'.$value.'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="col-lg-4"><iframe class="w-100" height="300px" src="https://www.youtube.com/embed/'.$value['url'].'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
                     ';
                 }
                 $htmls = implode('',$htmls);

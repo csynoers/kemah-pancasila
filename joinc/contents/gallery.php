@@ -1,4 +1,9 @@
 <?php
+    function getVideoId($url) {
+        return (
+            explode('=',explode('?',$url)[1])[1]
+        );
+    }
     switch ( $_GET['q'] ) {
         case 'foto':
             $data          = [];
@@ -8,7 +13,11 @@
         case 'video':
             $data          = [];
             $data['title'] = $_GET['q'];
-            $data['rows'] = ['MVigfFnjzEE','MVigfFnjzEE','MVigfFnjzEE','MVigfFnjzEE'];
+            // print_r($database->select($fields="*", $table="gallery_video", $where_clause="ORDER BY tt DESC", $fetch="all"));
+            foreach ($database->select($fields="*", $table="gallery_video", $where_clause="ORDER BY tt DESC", $fetch="all") as $key => $value) {
+                $value['url'] = getVideoId($value['url']);
+                $data['rows'][] = $value;
+            }
             require_once('gallery_video.php');
             break;
         
