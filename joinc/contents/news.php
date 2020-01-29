@@ -62,3 +62,25 @@
         </div>
     </section>
 <!-- //berita -->
+
+<section class="partners py-5" id="penyelenggara">
+    <div class="container py-xl-5 py-lg-3">
+        <h3 class="tittle text-center font-weight-bold">Media Partners</h3>
+        <p class="sub-tittle text-center mt-3 mb-sm-5 mb-4">Partners Kemah Pancasila.</p>
+        <div class="row grid-part text-center pt-4" >
+            <div class="owl-carousel" id="slider2">					
+            <?php 
+                foreach ($database->select($fields="*", $table="media_partners", $where_clause="ORDER BY media_partner_id DESC", $fetch="all") as $key => $cl) {
+                    echo '
+                        <div class="parts-w3ls p-5">															
+                            <a href="media-berita-'.$cl['media_partner_id'].'"><img src="joimg/blog/thumbnail/'.$cl['media_partner_image'].'" alt="'.$cl['media_partner_title'].'"></a>
+                            <h4>'.$cl['media_partner_title'].'</h4>
+                        </div>
+                    ';
+                }
+            ?>
+            </div>
+            
+        </div>
+    </div>
+</section>

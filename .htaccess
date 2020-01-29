@@ -29,6 +29,8 @@ RewriteRule ^berita$ media.php?mod=berita [L]
 RewriteRule ^berita-halaman-(.*)$ media.php?mod=berita&halaman=$1 [L]
 RewriteRule ^detail-berita-(.*)-(.*)$ media.php?mod=berita_detail&seo=$1&id=$2 [L]
 RewriteRule ^berita-category-(.*)-(.*)$ media.php?mod=berita_category&seo=$1&id=$2 [L]
+#media partners
+RewriteRule ^media-berita-(.*)$ media.php?mod=media_partners&id=$1 [L]
 
 #program
 RewriteRule ^program$ media.php?mod=program [L]
@@ -39,6 +41,9 @@ RewriteRule ^detail-program-(.*)-(.*)$ media.php?mod=program_detail&seo=$1&id=$2
 RewriteRule ^agenda$ media.php?mod=agenda [L]
 RewriteRule ^agenda-halaman-(.*)$ media.php?mod=agenda&halaman=$1 [L]
 RewriteRule ^detail-agenda-(.*)-(.*)$ media.php?mod=agenda_detail&seo=$1&id=$2 [L]
+
+#penyelenggara
+RewriteRule ^detail-penyelenggara-(.*)-(.*)$ media.php?mod=detail_penyelenggara&id=$1&seo=$2 [L]
 
 RewriteRule ^galeri-(.*)$ media.php?mod=gallery&q=$1 [L]
 

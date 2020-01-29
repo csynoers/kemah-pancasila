@@ -68,6 +68,7 @@ else {
                                 <th width="5%">No</th>
                                 <th width="35%">Judul</th>
                                 <th>Kategori</th>
+                                <th>Media</th>
                                 <th>Gambar</th>
                                 <th>Date</th>
                                 <th>Views</th>
@@ -80,7 +81,7 @@ else {
 
                         <?php
                             $no=1;
-                            $posts = $database->select($fields="*", $table="blog", $where_clause="ORDER BY id_blog DESC", $fetch="all");
+                            $posts = $database->select($fields="*", $table="blog", $where_clause="LEFT JOIN media_partners ON media_partners.media_partner_id=blog.media_partner_id ORDER BY id_blog DESC", $fetch="all");
                             foreach ($posts as $key => $value) {
                             $nk = $database->select($fields="nama", $table="blog_kategori", $where_clause="WHERE id_blog_kategori = '$value[id_blog_kategori]'", $fetch="");
                         ?>
@@ -89,6 +90,7 @@ else {
                                 <th><?php echo $no; ?></th>
                                 <td><?php echo $value['judul']; ?></td>
                                 <td><?php echo $nk['nama']; ?></td>
+                                <td><?php echo $value['media_partner_title']; ?></td>
                                 <td><img src="../joimg/blog/thumbnail/<?php echo $value['image'];?>" alt="" width="80px"></td>
                                 <td><?php echo $value['date']; ?></td>
                                 <td><?php echo $value['view']; ?></td>
@@ -139,6 +141,24 @@ else {
                                                 foreach ($kat as $key => $k) {
                                                     echo '
                                                         <option value="'.$k['id_blog_kategori'].'">'.$k['nama'].'</option>
+                                                    ';
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>  
+                            <div class="form-group">
+                                <div class="fg-line">
+                                    <label>Media Partner <span class="color-red">*</span></label>
+                                    <div class="select">
+                                        <select class="form-control" name="media_partner_id" required="require">
+                                            <option disabled="disable" selected="select">- Pilih -</option>
+                                            <?php
+                                                $kat = $database -> select($fields='*', $table='media_partners', $where_clause='ORDER BY media_partner_id DESC', $fetch='all'); 
+                                                foreach ($kat as $key => $k) {
+                                                    echo '
+                                                        <option value="'.$k['media_partner_id'].'">'.$k['media_partner_title'].'</option>
                                                     ';
                                                 }
                                             ?>
@@ -236,6 +256,29 @@ else {
                                                         } else {
                                                             echo '
                                                                 <option value="'.$k['id_blog_kategori'].'">'.$k['nama'].'</option>
+                                                            ';
+                                                        }
+
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>  
+                                <div class="form-group">
+                                    <div class="fg-line">
+                                        <label>Media Partners <span class="color-red">*</span></label>
+                                        <div class="select">
+                                            <select class="form-control" name="media_partner_id"  required="require">
+                                                <option disabled="disable" selected="select">- Pilih -</option>
+                                                <?php
+                                                    $kat = $database -> select($fields='*', $table='media_partners', $where_clause='ORDER BY media_partner_id DESC', $fetch='all'); 
+                                                    foreach ($kat as $key => $k) {
+                                                        if ($k['media_partner_id']==$value['media_partner_id']) {
+                                                            echo '<option value="'.$k['media_partner_id'].'" selected>'.$k['media_partner_title'].'</option>';
+                                                        } else {
+                                                            echo '
+                                                                <option value="'.$k['media_partner_id'].'">'.$k['media_partner_title'].'</option>
                                                             ';
                                                         }
 

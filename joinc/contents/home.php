@@ -100,11 +100,10 @@
 			<div class="row grid-part text-center pt-4" >
 				<div class="owl-carousel" id="slider2">					
 				<?php 
-                    $client = $database->select($fields="*", $table="client", $where_clause="ORDER BY id_client DESC", $fetch="all");
-                    foreach ($client as $key => $cl) {
+                    foreach ($database->select($fields="*", $table="client", $where_clause="ORDER BY id_client DESC", $fetch="all") as $key => $cl) {
                         echo '
-							<div class="parts-w3ls">															
-								<a href="'.$cl['url'].'"><img src="joimg/client/'.$cl['image'].'" alt="'.$cl['nama'].'"></a>
+							<div class="parts-w3ls p-5">															
+								<a href="detail-penyelenggara-'.$cl['id_client'].'-'.$cl['seo'].'"><img src="joimg/client/'.$cl['image'].'" alt="'.$cl['nama'].'"></a>
 								<h4>'.$cl['nama'].'</h4>
 							</div>
                         ';

@@ -53,9 +53,10 @@ if($act=='insert')
                 "nama"               => "$_POST[judul]",
                 "seo"                => "$nama_seo",
                 "image"              => "$nama_file_unik",
-                "url"                => "$_POST[url]",
+                // "url"                => "$_POST[url]",
                 "dateTime"           => "$date",
-                "status"             => "$_POST[status]"
+                "status"             => "$_POST[status]",
+                "deskripsi"          => "$_POST[deskripsi]",
             );
 
             //proses insert ke database
@@ -69,9 +70,10 @@ if($act=='insert')
                 // "id_client_kategori" => "$_POST[kategori]",
                 "nama"               => "$_POST[judul]",
                 "seo"                => "$nama_seo",
-                "url"                => "$_POST[url]",
+                // "url"                => "$_POST[url]",
                 "dateTime"           => "$date",
-                "status"             => "$_POST[status]"
+                "status"             => "$_POST[status]",
+                "deskripsi"          => "$_POST[deskripsi]",
             );
 
             //proses insert ke database
@@ -123,9 +125,10 @@ if($act=='update')
                 "nama"               => "$_POST[judul]",
                 "seo"                => "$nama_seo",
                 "image"              => "$nama_file_unik",
-                "url"                => "$_POST[url]",
+                // "url"                => "$_POST[url]",
                 "dateTime"           => "$date",
-                "status"             => "$_POST[status]"
+                "status"             => "$_POST[status]",
+                "deskripsi"          => "$_POST[deskripsi]",
             );
 
             //proses update ke database
@@ -139,9 +142,10 @@ if($act=='update')
                 // "id_client_kategori" => "$_POST[kategori]",
                 "nama"               => "$_POST[judul]",
                 "seo"                => "$nama_seo",
-                "url"                => "$_POST[url]",
+                // "url"                => "$_POST[url]",
                 "dateTime"           => "$date",
-                "status"             => "$_POST[status]"
+                "status"             => "$_POST[status]",
+                "deskripsi"          => "$_POST[deskripsi]",
             );
 
             //proses update ke database

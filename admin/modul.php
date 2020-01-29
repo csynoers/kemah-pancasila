@@ -135,6 +135,12 @@ elseif ($_GET['module']=='blog_kategori') {
     include "modul/mod_blog_kategori/blog_kategori_v.php";
   }
 }
+// Bagian blog_media_partner
+elseif ($_GET['module']=='blog_media_partner') {
+  if ($_SESSION['level']=='admin') {
+    include "modul/mod_blog_media_partner/index.php";
+  }
+}
 
 // Bagian program
 elseif ($_GET['module']=='program') {

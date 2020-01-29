@@ -55,6 +55,10 @@ elseif($_GET['mod']=='client_category') {
 	include "joinc/contents/client_category.php" ;
 }
 
+#modul contents media partner
+elseif($_GET['mod']=='media_partners') {
+	include "joinc/contents/media_partners.php" ;
+}
 #modul contents news
 elseif($_GET['mod']=='berita') {
 	include "joinc/contents/news.php" ;
@@ -122,6 +126,9 @@ elseif($_GET['mod']=='agenda') {
 }
 elseif($_GET['mod']=='agenda_detail') {
 	include "joinc/contents/agenda_detail.php" ;
+}
+elseif($_GET['mod']=='detail_penyelenggara') {
+	include "joinc/contents/detail_penyelenggara.php" ;
 }
 
 elseif($_GET['mod']=='fasilitator') {

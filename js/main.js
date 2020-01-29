@@ -4,7 +4,7 @@ $(document).ready(function(){
 
         animateOut: 'fadeOut',
         responsiveClass: true,
-        nav: false,
+        nav: true,
         responsive: {
             760: {
                 items: 3,

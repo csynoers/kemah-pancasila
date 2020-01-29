@@ -101,7 +101,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
     <meta name="description" content="<?php echo $deskripsi['static_content']; ?>">
     <meta name="keywords" content="<?php echo $keywords['static_content']; ?>">
-    <meta name="author" content="mastopp" />
+    <meta name="author" content="mastopp, csynoers" />
 
 	<!-- Custom-Files -->
     <link rel="shortcut icon" type="image/png" href="images/icon.png">

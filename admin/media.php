@@ -218,9 +218,10 @@ else
                                 <li><a href="?module=program">Program</a></li>
                             </ul>
                         </li>
-                        <li class="sub-menu <?php echo $t =($_GET['module'] === 'blog' ) || ($_GET['module'] === 'blog_kategori')  ? 'active toggled' : '' ; ?>">
+                        <li class="sub-menu <?php echo $t =($_GET['module'] === 'blog' ) || ($_GET['module'] === 'blog_kategori') || ($_GET['module'] === 'blog_media_partner')  ? 'active toggled' : '' ; ?>">
                             <a href="#"><i class="zmdi zmdi-assignment zmdi-hc-fw"></i> Berita</a>
                             <ul>
+                                <li><a href="?module=blog_media_partner">Media Partner</a></li>
                                 <li><a href="?module=blog_kategori">Berita Kategori</a></li>
                                 <li><a href="?module=blog">Berita</a></li>
                             </ul>

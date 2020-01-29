@@ -22,17 +22,16 @@ $act    = $_GET['act'];
 if($act=='insert')
 {
     // Insert
-    if ($module=='blog' AND $act=='insert')
+    if ($module=='blog_media_partner' AND $act=='insert')
     {
         $lokasi_file    = $_FILES['fupload']['tmp_name'];
         $tipe_file      = $_FILES['fupload']['type'];
         $nama_file      = $_FILES['fupload']['name'];
-
-        $nama_seo       = substr(seo($_POST['judul']), 0, 75);
-        $acak           = rand(000,999);
-        $nama_file_unik = $nama_seo.'-'.$acak.'-'.$nama_file;
-        $deskripsi      = stripslashes($_POST['deskripsi']);
-        $date = date('Y-m-d');
+        
+        // $nama_seo       = substr(seo($_POST['judul']), 0, 75);
+        // $nama_file_unik = $nama_seo.'-'.$acak.'-'.$nama_file;
+        // $date = date('Y-m-d');
+        $nama_file_unik = date('Ymdhis').'-'.$nama_file;
 
         if(!empty($lokasi_file))
         {
@@ -47,34 +46,26 @@ if($act=='insert')
 
             //data yang akan di insert berbentuk array
             $form_data = array(
-                "judul"             => "$_POST[judul]",
-                "id_blog_kategori"  => "$_POST[kategori]",
-                "deskripsi"         => "$deskripsi",
-                "image"             => "$nama_file_unik",
-                "date"              => "$date",
-                "seo"               => "$nama_seo",
-                "status"            => "$_POST[status]",
-                "media_partner_id"  => $_POST['media_partner_id']
+                "media_partner_title"             => $_POST['title'],
+                "media_partner_image"             => $nama_file_unik,
+                "media_partner_deskripsi"         => stripslashes($_POST['deskripsi']),
+                "media_partner_status"            => $_POST['status']
             );
 
             //proses insert ke database
-            $database->insert($table="blog", $array=$form_data);
+            $database->insert($table="media_partners", $array=$form_data);
         }
         else
         {
             //data yang akan di insert berbentuk array
             $form_data = array(
-                "judul"             => "$_POST[judul]",
-                "id_blog_kategori"  => "$_POST[kategori]",
-                "deskripsi"         => "$deskripsi",
-                "date"              => "$date",
-                "seo"               => "$nama_seo",
-                "status"            => "$_POST[status]",
-                "media_partner_id"  => $_POST['media_partner_id']
+                "media_partner_title"             => $_POST['title'],
+                "media_partner_deskripsi"         => stripslashes($_POST['deskripsi']),
+                "media_partner_status"            => $_POST['status']
             );
 
             //proses insert ke database
-            $database->insert($table="blog", $array=$form_data);
+            $database->insert($table="media_partners", $array=$form_data);
         }
 
         echo "<script> window.location = '../../media.php?module=$module';</script>";
@@ -88,16 +79,16 @@ if($act=='insert')
 if($act=='update')
 {
     // Update
-    if ($module=='blog' AND $act=='update')
+    if ($module=='blog_media_partner' AND $act=='update')
     {
         $lokasi_file    = $_FILES['fupload']['tmp_name'];
         $tipe_file      = $_FILES['fupload']['type'];
         $nama_file      = $_FILES['fupload']['name'];
 
-        $nama_seo       = substr(seo($_POST['judul']), 0, 50);
-        $acak           = rand(000,999);
-        $nama_file_unik = $nama_seo.'-'.$acak.'-'.$nama_file;
-        $deskripsi      = stripslashes($_POST['deskripsi']);
+        // $nama_seo       = substr(seo($_POST['judul']), 0, 50);
+        // $acak           = rand(000,999);
+        // $deskripsi      = stripslashes($_POST['deskripsi']);
+        $nama_file_unik = date('Ymdhis').'-'.$nama_file;
         $date = date('Y-m-d');
 
         if(!empty($lokasi_file))
@@ -108,11 +99,11 @@ if($act=='update')
                 die();
             }
 
-            $show   = $database->select($fields="image", $table="blog", $where_clause="WHERE id_blog = '$_POST[id]'", $fetch='');
-            if($show['image'] != '')
+            $show   = $database->select($fields="media_partner_image", $table="media_partners", $where_clause="WHERE media_partner_id = '$_POST[id]'", $fetch='');
+            if($show['media_partner_image'] != '')
             {
-                unlink("../../../joimg/blog/$show[image]");
-                unlink("../../../joimg/blog/thumbnail/$show[image]");
+                unlink("../../../joimg/blog/$show[media_partner_image]");
+                unlink("../../../joimg/blog/thumbnail/$show[media_partner_image]");
             }
 
             $upload->berkas($fileName=$nama_file_unik, $fileDirectory="../../../joimg/blog/");
@@ -120,36 +111,26 @@ if($act=='update')
 
             //data yang akan diupdate berbentuk array
             $form_data = array(
-                
-                "judul"             => "$_POST[judul]",
-                "id_blog_kategori"  => "$_POST[kategori]",
-                "deskripsi"         => "$deskripsi",
-                "image"             => "$nama_file_unik",
-                "date"              => "$date",
-                "seo"               => "$nama_seo",
-                "status"            => "$_POST[status]",
-                "media_partner_id"  => $_POST['media_partner_id']
+                "media_partner_title"             => $_POST['title'],
+                "media_partner_image"             => $nama_file_unik,
+                "media_partner_deskripsi"         => stripslashes($_POST['deskripsi']),
+                "media_partner_status"            => $_POST['status']
             );
 
             //proses update ke database
-            $database->update($table="blog", $array=$form_data, $fields_key="id_blog", $id="$_POST[id]");
+            $database->update($table="media_partners", $array=$form_data, $fields_key="media_partner_id", $id="$_POST[id]");
         }
         else
         {
             //data yang akan diupdate berbentuk array
             $form_data = array(
-                
-                "judul"             => "$_POST[judul]",                
-                "id_blog_kategori"  => "$_POST[kategori]",
-                "deskripsi"         => "$deskripsi",
-                "date"              => "$date",
-                "seo"               => "$nama_seo",
-                "status"            => "$_POST[status]",
-                "media_partner_id"  => $_POST['media_partner_id']
+                "media_partner_title"             => $_POST['title'],
+                "media_partner_deskripsi"         => stripslashes($_POST['deskripsi']),
+                "media_partner_status"            => $_POST['status']
             );
 
             //proses update ke database
-            $database->update($table="blog", $array=$form_data, $fields_key="id_blog", $id="$_POST[id]");
+            $database->update($table="media_partners", $array=$form_data, $fields_key="media_partner_id", $id="$_POST[id]");
         }
 
         echo "<script> window.location = '../../media.php?module=$module';</script>";
@@ -164,19 +145,19 @@ if($act=='update')
 if($act=='delete')
 {
     // Delete
-    if ($module=='blog' AND $act=='delete')
+    if ($module=='blog_media_partner' AND $act=='delete')
     {
     //  $show   = db_get_one("SELECT * FROM sosmed WHERE id_sosmed='$_GET[id]'");
-        $show   = $database->select($fields="image", $table="blog", $where_clause="WHERE id_blog = '$_GET[id]'", $fetch='');
-        if($show['image'] != '')
+        $show   = $database->select($fields="media_partner_image", $table="media_partners", $where_clause="WHERE media_partner_id = '$_GET[id]'", $fetch='');
+        if($show['media_partner_image'] != '')
         {
-            unlink("../../../joimg/blog/$show[image]");
-            unlink("../../../joimg/blog/thumbnail/$show[image]");
-            $database->delete($table="blog", $fields_key="id_blog", $id="$_GET[id]");
+            unlink("../../../joimg/blog/$show[media_partner_image]");
+            unlink("../../../joimg/blog/thumbnail/$show[media_partner_image]");
+            $database->delete($table="media_partners", $fields_key="media_partner_id", $id="$_GET[id]");
         }
         else
         {
-            $database->delete($table="blog", $fields_key="id_blog", $id="$_GET[id]");
+            $database->delete($table="media_partners", $fields_key="media_partner_id", $id="$_GET[id]");
         }
 
         echo "<script> window.location = '../../media.php?module=$module';</script>";
