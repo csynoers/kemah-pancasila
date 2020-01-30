@@ -4,6 +4,10 @@ RewriteEngine On
 	Options All -Indexes
 </Ifmodule>
 
+#add SSL
+RewriteCond %{SERVER_PORT} 80 
+RewriteRule ^(.*)$ https://www.kemahpancasila.com/$1 [R,L]
+
 #---- Begin Site Map ---#
 RewriteRule (.*)\.xml(.*) $1.php$2 [nocase]
 #---- End Site Map ----#
@@ -16,6 +20,7 @@ RewriteRule ^staff$ media.php?mod=staff [L]
 RewriteRule ^contact$ media.php?mod=contact [L]
 
 RewriteRule ^testimoni$ media.php?mod=testimoni [L]
+RewriteRule ^detail-testimoni-(.*)-(.*)$ media.php?mod=detail_testimoni&id=$1&seo=$2 [L]
 RewriteRule ^testimoni-halaman-(.*)$ media.php?mod=testimoni&halaman=$1 [L]
 
 #profil

@@ -117,6 +117,9 @@ elseif($_GET['mod']=='trainer_detail') {
 elseif($_GET['mod']=='testimoni') {
 	include "joinc/contents/testimoni.php" ;
 }
+elseif($_GET['mod']=='detail_testimoni') {
+	include "joinc/contents/detail_testimoni.php" ;
+}
 elseif($_GET['mod']=='sosmed') {
 	include "joinc/contents/sosmed.php" ;
 }
