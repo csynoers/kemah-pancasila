@@ -94,7 +94,8 @@
             <div class="grid-col grid-col--4"></div>
             <?php
             foreach (array_splice($data['rows'],$posisi,$batas) as $key => $value) {
-                $value->urlMod = "https://www.instagram.com/p/{$value->node->shortcode}"; 
+                $value->urlMod = "https://www.instagram.com/p/{$value->node->shortcode}";
+                $value->node->edge_media_to_caption->edges[0]->node->text = strip_tags($value->node->edge_media_to_caption->edges[0]->node->text);
                 echo "
                     <div class='grid-item grid-item--{$key} mb-4'>
                         <div class='card'>

@@ -1,5 +1,5 @@
 <!--banner -->
-    <div class="banner_w3lspvt position-relative">
+<div class="banner_w3lspvt position-relative">
         <div class="container">
             <div class="d-md-flex">
                 <div class="w3ls_banner_txt pt-0">
@@ -39,21 +39,21 @@
 		$artikel = [];
 		#get rows program
 		foreach ($database->select($fields="*", $table="program", $where_clause="ORDER BY id_program DESC LIMIT 1", $fetch="all") as $key => $value) {
-			$value['deskripsi'] = strip_tags(substr($value['deskripsi'], 0, 150)).'..';
+			$value['deskripsi'] = substr(strip_tags($value['deskripsi']), 0, 150).'..';
 			$value['image']		= "./joimg/program/thumbnail/{$value['image']}";
 			$value['url'] 		= "detail-program-{$value['seo']}-{$value['id_program']}";
 			$artikel[] 			= $value;
 		}  
 		#get rows berita
 		foreach ($database->select($fields="*", $table="blog", $where_clause="ORDER BY id_blog DESC LIMIT 1", $fetch="all") as $key => $value) {
-			$value['deskripsi'] = strip_tags(substr($value['deskripsi'], 0, 150)).'..';
+			$value['deskripsi'] = substr(strip_tags($value['deskripsi']), 0, 150).'..';
 			$value['image']		= "./joimg/blog/thumbnail/{$value['image']}";
 			$value['url'] 		= "detail-berita-{$value['seo']}-{$value['id_blog']}";
 			$artikel[] = $value;
 		}  
 		#get rows agenda
 		foreach ($database->select($fields="*", $table="agenda", $where_clause="ORDER BY id_agenda DESC LIMIT 1", $fetch="all") as $key => $value) {
-			$value['deskripsi'] = strip_tags(substr($value['deskripsi'], 0, 150)).'..';
+			$value['deskripsi'] = substr(strip_tags($value['deskripsi']), 0, 150).'..';
 			$value['image']		= "./joimg/agenda/thumbnail/{$value['image']}";
 			$value['url'] 		= "detail-agenda-{$value['seo']}-{$value['id_agenda']}";
 			$artikel[] = $value;
@@ -64,15 +64,18 @@
 		$artikelHtmls = [];
 		foreach ($artikel as $key => $value) {
 			$artikelHtmls[] = "
-			<div class='col-lg-4'>
-				<div class='about-grid-main' style='padding:1em!important;'>
-					<img src='{$value['image']}' alt='{$value['judul']}' class='img-fluid'>
-					<h4 class='my-4'>{$value['judul']}</h4>
-					<p>{$value['deskripsi']}</p>
-					<a href='{$value['url']}' class='button-w3ls btn mt-sm-5 mt-4'><i class='fa fa-book'></i> Read more</a>
+			<div class='col-sm-4'>
+				<div class='card text-center'>
+					<img src='{$value['image']}' alt='{$value['judul']}' class='card-img-top'>
+					<div class='card-body'>
+					    <h5 class='card-title'>{$value['judul']}</h5>
+    					<p class='card-text'>{$value['deskripsi']}</p>
+    				</div>
+    				<div class='card-footer'>
+    				    <a href='{$value['url']}' class='button-w3ls btn'><i class='fa fa-book'></i> Read more</a>
+    				</div>
 				</div>
 			</div>
-			<div class='clearfix'></div>
 			";
 		}
 		$artikelHtmls = implode('',$artikelHtmls);
@@ -81,15 +84,15 @@
 		// print_r($artikel);
 		// echo '</pre>';
 	?>
-	<div class="what bg-li py-5" id="whyChooseUs">
-		<div class="container py-xl-5 py-lg-3">
-			<h3 class="title text-center font-weight-bold">Info Terbaru</h3>
-			<p class="sub-tittle text-center mt-3 mb-sm-5 mb-4">Program , Berita & Agenda</p>				
-			<div class="row about-bottom-w3l text-center mt-4">
-				<?= $artikelHtmls ?>			
-			</div>
+	<section class="bg-li py-5">
+	    <h3 class="title text-center font-weight-bold">Info Terbaru</h3>
+		<p class="sub-tittle text-center mt-3 mb-sm-5 mb-4">Program , Berita & Agenda</p>
+		<div class="container">
+		    <div class="row">
+		        <?= $artikelHtmls ?>
+		    </div>
 		</div>
-	</div>
+	</section>
 <!-- end content artikel: (program,berita,agenda) -->
 
 	<!-- partners -->
