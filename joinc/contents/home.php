@@ -22,15 +22,6 @@
             </div>
         </div>
         <!-- animations effects -->
-        <!-- <div class="icon-effects-w3l">
-            <img src="images/shape1.png" alt="" class="img-fluid shape-wthree shape-w3-one">
-            <img src="images/shape2.png" alt="" class="img-fluid shape-wthree shape-w3-two">
-            <img src="images/shape3.png" alt="" class="img-fluid shape-wthree shape-w3-three">
-            <img src="images/shape5.png" alt="" class="img-fluid shape-wthree shape-w3-four">
-            <img src="images/shape4.png" alt="" class="img-fluid shape-wthree shape-w3-five">
-            <img src="images/shape6.png" alt="" class="img-fluid shape-wthree shape-w3-six">
-        </div> -->
-        <!-- //animations effects -->
     </div>
 <!-- //banner -->
 
